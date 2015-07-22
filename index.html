@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<input id="result" placeholder="result" type="text">
+<input id="number_0" placeholder="number 0" type="text">
+<span id="operator">+</span>
+<input id="number_1" placeholder="number 1" type="text">
+<div class="operator_bay">
+    <button id="add_button" type="button">+</button>
+    <button id="sub_button" type="button">-</button>
+    <button id="mul_button" type="button">*</button>
+    <button id="div_button" type="button">/</button>
+</div>
+
+<div class="fluid-container">
+<div class="col-sm-4 col-offset-4 col-xs-12 calc_body">
+<div class="col-xs-12 calc_display" id="result_container">
+    <input type="text" id="result_field" name="result_field" placeholder="Result">
+</div>
+<!--<div class="col-xs-12 row_container">-->
+<div class="row_container">
+    <div class="col-xs-3" onclick="input_digit(1)" id="1">1</div>
+    <div class="col-xs-3" onclick="input_digit(2)" id="2">2</div>
+    <div class="col-xs-3" onclick="input_digit(3)" id="3">3</div>
+    <div class="col-xs-3" id="back">BackSpace</div>
+</div>
+<div class="row_container">
+    <div class="col-xs-3" onclick="input_digit(4)" id="4">4</div>
+    <div class="col-xs-3" onclick="input_digit(5)" id="5">5</div>
+    <div class="col-xs-3" onclick="input_digit(6)" id="6">6</div>
+    <div class="col-xs-3" id="par">( )</div>
+</div>
+<div class="row_container">
+    <div class="col-xs-3" onclick="input_digit(7)" id="7">7</div>
+    <div class="col-xs-3" onclick="input_digit(8)" id="8">8</div>
+    <div class="col-xs-3" onclick="input_digit(9)" id="9">9</div>
+    <div class="col-xs-3" id="plus">+</div>
+</div>
+<div class="row_container">
+    <div class="col-xs-3" id="dot">.</div>
+    <div class="col-xs-3" onclick="input_digit(0)" id="0">0</div>
+    <div class="col-xs-3" id="times">X</div>
+    <div class="col-xs-3" id="minus">-</div>
+</div>
+<div class="row_container">
+    <div class="col-xs-3" id="equal">=</div>
+    <div class="col-xs-3" id="neg">+/-</div>
+    <div class="col-xs-3" id="divide">/</div>
+    <div class="col-xs-3" id="clear">C</div>
+</div>
+<!-- </div><!--End of row_container-->
+</div><!--End of calc_display-->
+</div><!--End of calc_body-->
+
+
+<script src="calc.js"></script>
+</body>
+</html>

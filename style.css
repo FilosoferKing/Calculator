@@ -1,0 +1,31 @@
+/*************************************************************
+Calculator
+*************************************************************/
+.calc_body {
+    position: relative;
+    margin: 0 auto;
+    border: 1px solid;
+    height: 100vh;
+    font-size: 2em;
+}
+
+/*.row_container {
+    height: 100vh;
+    margin: 0 auto;
+}*/
+.calc_display {
+    height: 10%;
+
+    border:1px solid;
+}
+
+.row_container {
+    height: 18%;
+    width: 100%;
+}
+
+.row_container div {
+    height: 100%;
+    width: 25%;
+    border:1px solid;
+}
