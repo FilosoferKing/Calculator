@@ -15,17 +15,15 @@ Calculator
 }*/
 .calc_display {
     height: 10%;
-
     border:1px solid;
 }
 
 .row_container {
-    height: 18%;
+    height: 15%;
     width: 100%;
 }
 
 .row_container div {
     height: 100%;
-    width: 25%;
     border:1px solid;
 }

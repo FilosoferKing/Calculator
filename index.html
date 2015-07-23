@@ -32,44 +32,50 @@
 </div>
 =================================================-->
 <div class="fluid-container">
-<div class="col-sm-4 col-offset-4 col-xs-12 calc_body">
-<div class="col-xs-12 calc_display" id="result_container">
-    <input type="text" id="result_field" name="result_field" placeholder="Result">
+    <div class="col-sm-4 col-offset-4 col-xs-12 calc_body">
+        <div class="col-xs-12 calc_display" id="result_container">
+            <input class="col-xs-12" type="text" id="result_field" name="result_field" placeholder="Result" readonly>
+        </div>
+        <!--<div class="col-xs-12 row_container">-->
+        <div class="row_container">
+            <div class="col-xs-3" onclick="input_digit(1)" id="1">1</div>
+            <div class="col-xs-3" onclick="input_digit(2)" id="2">2</div>
+            <div class="col-xs-3" onclick="input_digit(3)" id="3">3</div>
+            <div class="col-xs-3">C</div>
+        </div>
+        <div class="row_container">
+            <div class="col-xs-3" onclick="input_digit(4)" id="4">4</div>
+            <div class="col-xs-3" onclick="input_digit(5)" id="5">5</div>
+            <div class="col-xs-3" onclick="input_digit(6)" id="6">6</div>
+            <div class="col-xs-3" id="par">( )</div>
+        </div>
+        <div class="row_container">
+            <div class="col-xs-3" onclick="input_digit(7)" id="7">7</div>
+            <div class="col-xs-3" onclick="input_digit(8)" id="8">8</div>
+            <div class="col-xs-3" onclick="input_digit(9)" id="9">9</div>
+            <div class="col-xs-3" onclick="operator('+')" id="plus">+</div>
+        </div>
+        <div class="row_container">
+            <div class="col-xs-3" onclick="input_digit('.')" id="dot">.</div>
+            <div class="col-xs-3" onclick="input_digit(0)" id="0">0</div>
+            <div class="col-xs-3" onclick="operator('*')" id="times">X</div>
+            <div class="col-xs-3" onclick="operator('-')" id="minus">-</div>
+        </div>
+        <div class="row_container">
+            <div class="col-xs-3">x^</div>
+            <div class="col-xs-3" onclick="invert()" id="neg">+/-</div>
+            <div class="col-xs-3" onclick="operator('/')" id="divide">/</div>
+            <div class="col-xs-3" id="clear">AC</div>
+        </div>
+        <div class="row_container">
+            <div class="col-xs-6" onclick="calculate()" id="equal">=</div>
+            <div class="col-xs-6" id="back">BackSpace</div>
+        </div>
+        <!-- </div><!--End of row_container-->
+    </div>
+    <!--End of calc_display-->
 </div>
-<!--<div class="col-xs-12 row_container">-->
-<div class="row_container">
-    <div class="col-xs-3" onclick="input_digit(1)" id="1">1</div>
-    <div class="col-xs-3" onclick="input_digit(2)" id="2">2</div>
-    <div class="col-xs-3" onclick="input_digit(3)" id="3">3</div>
-    <div class="col-xs-3" id="back">BackSpace</div>
-</div>
-<div class="row_container">
-    <div class="col-xs-3" onclick="input_digit(4)" id="4">4</div>
-    <div class="col-xs-3" onclick="input_digit(5)" id="5">5</div>
-    <div class="col-xs-3" onclick="input_digit(6)" id="6">6</div>
-    <div class="col-xs-3" id="par">( )</div>
-</div>
-<div class="row_container">
-    <div class="col-xs-3" onclick="input_digit(7)" id="7">7</div>
-    <div class="col-xs-3" onclick="input_digit(8)" id="8">8</div>
-    <div class="col-xs-3" onclick="input_digit(9)" id="9">9</div>
-    <div class="col-xs-3" onclick="operator('+')" id="plus">+</div>
-</div>
-<div class="row_container">
-    <div class="col-xs-3" id="dot">.</div>
-    <div class="col-xs-3" onclick="input_digit(0)" id="0">0</div>
-    <div class="col-xs-3" onclick="operator('*')" id="times">X</div>
-    <div class="col-xs-3" onclick="operator('-')" id="minus">-</div>
-</div>
-<div class="row_container">
-    <div class="col-xs-3" onclick="calculate()" id="equal">=</div>
-    <div class="col-xs-3" id="neg">+/-</div>
-    <div class="col-xs-3" onclick="operator('/')" id="divide">/</div>
-    <div class="col-xs-3" id="clear">C</div>
-</div>
-<!-- </div><!--End of row_container-->
-</div><!--End of calc_display-->
-</div><!--End of calc_body-->
+<!--End of calc_body-->
 
 
 <script src="calc.js"></script>

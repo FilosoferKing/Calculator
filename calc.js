@@ -33,17 +33,17 @@ function operator(op){
 }
 
 function add(operand1, operand2){//adds operand1 and operand 2
-    var add = parseInt(operand1) + parseInt(operand2);//parses the operands and stores them in the variable 'add
+    var add = parseFloat(operand1) + parseFloat(operand2);//parses the operands and stores them in the variable 'add
     $('#result_field').val(add);//inserts the calculated function into the display
 }
 
 function sub(operand1, operand2){//subtracts operand1 and operand 2
-    var sub = parseInt(operand1) - parseInt(operand2);//parses the operands and stores them in the variable 'sub
+    var sub = parseFloat(operand1) - parseFloat(operand2);//parses the operands and stores them in the variable 'sub
     $('#result_field').val(sub);//inserts the calculated function into the display
 }
 
 function mult(operand1, operand2){//multiplies operand1 and operand 2
-    var mult = parseInt(operand1) * parseInt(operand2);//parses the operands and stores them in the variable 'mult
+    var mult = parseFloat(operand1) * parseFloat(operand2);//parses the operands and stores them in the variable 'mult
     $('#result_field').val(mult);//inserts the calculated function into the display
 }
 
@@ -51,7 +51,7 @@ function div(operand1, operand2){//divides operand1 and operand 2
     if (operand2 == 0) {
         $('#result_field').val("Undefined");//displays undefined if the number clicked was divided by 0
     } else {
-        var div = parseInt(operand1) / parseInt(operand2);//parses the operands and stores them in the variable 'div
+        var div = parseFloat(operand1) / parseFloat(operand2);//parses the operands and stores them in the variable 'div
         $('#result_field').val(div);//inserts the calculated function into the display
     }
 }
@@ -79,7 +79,14 @@ $('#clear').click(function(){//clears the display
     console.log("Clear called");
     operand_array[0] = "";
     operand_array[1] = "";
+    index_pointer = 0;
 })
+
+function invert(){
+    var number = $('#result_field').val();
+    var inversion = "-" + number;
+    $('#result_field').val(inversion);
+}
 
 
 
