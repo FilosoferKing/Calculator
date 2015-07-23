@@ -19,7 +19,7 @@
 
 </head>
 <body>
-
+<!--================Version 0.1====================
 <input id="result" placeholder="result" type="text">
 <input id="number_0" placeholder="number 0" type="text">
 <span id="operator">+</span>
@@ -30,7 +30,7 @@
     <button id="mul_button" type="button">*</button>
     <button id="div_button" type="button">/</button>
 </div>
-
+=================================================-->
 <div class="fluid-container">
 <div class="col-sm-4 col-offset-4 col-xs-12 calc_body">
 <div class="col-xs-12 calc_display" id="result_container">
@@ -53,18 +53,18 @@
     <div class="col-xs-3" onclick="input_digit(7)" id="7">7</div>
     <div class="col-xs-3" onclick="input_digit(8)" id="8">8</div>
     <div class="col-xs-3" onclick="input_digit(9)" id="9">9</div>
-    <div class="col-xs-3" id="plus">+</div>
+    <div class="col-xs-3" onclick="operator('+')" id="plus">+</div>
 </div>
 <div class="row_container">
     <div class="col-xs-3" id="dot">.</div>
     <div class="col-xs-3" onclick="input_digit(0)" id="0">0</div>
-    <div class="col-xs-3" id="times">X</div>
-    <div class="col-xs-3" id="minus">-</div>
+    <div class="col-xs-3" onclick="operator('*')" id="times">X</div>
+    <div class="col-xs-3" onclick="operator('-')" id="minus">-</div>
 </div>
 <div class="row_container">
-    <div class="col-xs-3" id="equal">=</div>
+    <div class="col-xs-3" onclick="calculate()" id="equal">=</div>
     <div class="col-xs-3" id="neg">+/-</div>
-    <div class="col-xs-3" id="divide">/</div>
+    <div class="col-xs-3" onclick="operator('/')" id="divide">/</div>
     <div class="col-xs-3" id="clear">C</div>
 </div>
 <!-- </div><!--End of row_container-->
