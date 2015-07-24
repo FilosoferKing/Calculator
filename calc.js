@@ -17,6 +17,7 @@ var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
 var the_operator;//holds the operator that is clicked
 var first_op_click = true;
+var calc_result = null;
 
 function input_digit(operand){//takes the input of the calculator buttons
     var input_digit = $('#input_field').val();//retrieves the value of the display
@@ -26,18 +27,19 @@ function input_digit(operand){//takes the input of the calculator buttons
 }
 
 function operator(op){
-    var input_number = $('#input_field').val();//retrieves value from display
+    var input_number = $('#result_field').val();//retrieves value from display
     var operator_concat = input_number + op;//concatenates the operator clicked to the current value of the display
     $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
     refresh();
-    if (first_op_click == false){//checks to see if it is the preceding click from the initial operator click
-        console.log("second click");
-        $('#input_field').val(calculate());
-        //var current_number = $('#result_field').val();
-        //operand_array[0] = current_number;
-        //operand_array[1] = "";
+    if (first_op_click == false){
+        console.log("Equal not hit");
+        calc_result = calculate();
+        $('#input_field').val("");
+        var result_num = operand_array[0];
+        var num_op = result_num + op;
+        $('#input_field').val(num_op);
     }
     first_op_click = false;
 }
@@ -69,11 +71,12 @@ function div(operand1, operand2){//divides operand1 and operand 2
 }
 
 function calculate(){//determines the operator to be used in and runs the function associated with that operator
-    var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
+     num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
     var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
     switch(the_operator){//switch statement to determine the operator to use
         case '+':
             add(num1, num2);//runs the add() function
+            first_op_click = false;
             break;
         case '-':
            sub(num1, num2);//runs the sub() function
@@ -86,7 +89,8 @@ function calculate(){//determines the operator to be used in and runs the functi
             break;
     }
 }
-$('#all_clear').click(function(){//clears the display
+
+function all_clear(){
     $('#input_field').val("");//puts an empty string back into the display
     $('#result_field').val("");
     console.log("Clear called");
@@ -94,6 +98,9 @@ $('#all_clear').click(function(){//clears the display
     operand_array[1] = "";
     index_pointer = 0;
     first_op_click = true;
+}
+$('#all_clear').click(function(){//clears the display
+    all_clear();
 })
 
 $('#clear').click(function(){

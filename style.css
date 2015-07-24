@@ -9,10 +9,6 @@ Calculator
     font-size: 2em;
 }
 
-/*.row_container {
-    height: 100vh;
-    margin: 0 auto;
-}*/
 .calc_display {
     height: 20%;
     border:1px solid;
