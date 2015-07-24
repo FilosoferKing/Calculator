@@ -1,3 +1,4 @@
+/***********GLOBLA VARIABLES*******************/
 var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
 var the_operator;//holds the operator that is clicked
@@ -119,16 +120,16 @@ function calculate() {//determines the operator to be used in and runs the funct
     switch (the_operator) {//switch statement to determine the operator to use
         case '+'://if the_operator variable is holding a '+'
             add(num1, num2);//runs the add() function
-            break;//exits switch statement if case is true
+            break;
         case '-'://if the_operator variable is holding a '-'
             sub(num1, num2);//runs the sub() function
-            break;//exits switch statement if case is true
+            break;
         case '*'://if the_operator variable is holding a '*'
             mult(num1, num2);//runs the mult() function
-            break;//exits switch statement if case is true
+            break;
         case '/'://if the_operator variable is holding a '/'
             div(num1, num2);//runs the div() function
-            break;//exits switch statement if case is true
+            break;
     }
 }
 
