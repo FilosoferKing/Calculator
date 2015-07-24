@@ -191,6 +191,7 @@ function refresh_display() {
  * GLOBALS: operand_array
  * ADDITIONAL FUNCTIONS USED: none
  */
+//DWP THIS ONE
 function invert() {//inverts pos or neg sign to result
     var number = operand_array[0];//stores value of operand_array[0] into variable
     var inversion =  number * -1;//multiplies number variable by -1 and stores it on inversion variable
