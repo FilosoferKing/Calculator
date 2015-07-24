@@ -16,7 +16,6 @@
 var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
 var the_operator;//holds the operator that is clicked
-var first_op_click = true;
 var calc_result = null;
 
 function input_digit(operand){//takes the input of the calculator buttons
@@ -33,15 +32,6 @@ function operator(op){
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
     refresh();
-    if (first_op_click == false){
-        console.log("Equal not hit");
-        calc_result = calculate();
-        $('#input_field').val("");
-        var result_num = operand_array[0];
-        var num_op = result_num + op;
-        $('#input_field').val(num_op);
-    }
-    first_op_click = false;
 }
 
 function add(operand1, operand2){//adds operand1 and operand 2
@@ -71,7 +61,7 @@ function div(operand1, operand2){//divides operand1 and operand 2
 }
 
 function calculate(){//determines the operator to be used in and runs the function associated with that operator
-     num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
+    var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
     var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
     switch(the_operator){//switch statement to determine the operator to use
         case '+':
