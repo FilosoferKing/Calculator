@@ -31,10 +31,14 @@ function array_calc(){
         var array_result = $('#result_field').val();
         var array_op = array_result + the_operator;
         $('#input_field').val(array_op);
-        operand_array[0] = $('#result_field').val();
-        operand_array[1] = "";
+        store_index_0()
 
     }
+}
+
+function store_index_0(){
+    operand_array[0] = $('#result_field').val();
+    operand_array[1] = "";
 }
 
 function operator(op) {
@@ -45,23 +49,24 @@ function operator(op) {
     the_operator = op;//stores the operator clicked to be used in calculation comparison
     //refresh();
     array_calc();
-
 }
-
 function add(operand1, operand2) {//adds operand1 and operand 2
     var add = parseFloat(operand1) + parseFloat(operand2);//parses the operands and stores them in the variable 'add
     $('#result_field').val(add);//inserts the calculated function into the display
+    store_index_0()
 }
 
 function sub(operand1, operand2) {//subtracts operand1 and operand 2
     var sub = parseFloat(operand1) - parseFloat(operand2);//parses the operands and stores them in the variable 'sub
     $('#result_field').val(sub);//inserts the calculated function into the display
+    store_index_0()
 }
 
 function mult(operand1, operand2) {//multiplies operand1 and operand 2
     var mult = parseFloat(operand1) * parseFloat(operand2);//parses the operands and stores them in the variable 'mult
     $('#result_field').val(mult);//inserts the calculated function into the display
     console.log("Mult: ", mult)
+    store_index_0()
 }
 
 function div(operand1, operand2) {//divides operand1 and operand 2
@@ -71,6 +76,7 @@ function div(operand1, operand2) {//divides operand1 and operand 2
         var div = parseFloat(operand1) / parseFloat(operand2);//parses the operands and stores them in the variable 'div
         $('#result_field').val(div);//inserts the calculated function into the display
     }
+    store_index_0()
 }
 //NEED TO WRITE CODE TO MOVE RESULT INTO FIRST ARRAY INDEX[0], SIMILAR TO ARRAY_CALC
 function calculate() {//determines the operator to be used in and runs the function associated with that operator
