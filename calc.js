@@ -116,18 +116,40 @@ function array_calc(){//this runs the calculation if an operator is pushed
  */
 //DWP THIS ONE
 //determines the operator to be used in and runs the function associated with that operator
+    function calculate() {
 //stores the [0] position from the operand array into the num1 variable
+    var num1 = operand_array[0];
+    console.log("num1 =", num1);
 //stores the [1] position from the operand array into the num2 variable
+    var num2 = operand_array[1];
+    console.log("num2 =", num2);
 //switch statement to determine the operator to use
-// if the_operator variable is holding a '+'
-//runs the add() function
-// if the_operator variable is holding a '-'
-//runs the sub() function
-// if the_operator variable is holding a '*'
-//runs the mult() function
-// if the_operator variable is holding a '/'
-//runs the div() function
+    switch(the_operator) {
 
+// if the_operator variable is holding a '+'
+        case '+':
+//runs the add() function
+            add(num1,num2);
+            console.log("hello we are in the switch, case add");
+            console.log(the_operator);
+            break;
+// if the_operator variable is holding a '-'
+        case '-':
+//runs the sub() function
+            sub(num1,num2);
+            break;
+// if the_operator variable is holding a '*'
+        case '*':
+//runs the mult() function
+            mult(num1,num2);
+            break;
+// if the_operator variable is holding a '/'
+        case '/':
+//runs the div() function
+            div(num1,num2);
+            break;
+    }
+}
 
 /*************************
  * NAME: store_index_0
@@ -189,11 +211,16 @@ function refresh_display() {
  */
 //DWP THIS ONE
 //inverts pos or neg sign to result
+function invert() {
 //stores value of operand_array[0] into variable
+    var number_variable = operand_array[0];
 // multiplies number variable by -1 and stores it in inversion variable
+    var number_inverted = (number_variable * -1);
 // inserts inversion variable into operand_array[0]
+    operand_array[0] += number_inverted;
 //inserts inversion variable value into input field
-
+    $('#result_field').val(number_inverted);
+}
 
 $('#all_clear').click(function () {//click function to run all_clear()
     all_clear();//calls all_clear() function
