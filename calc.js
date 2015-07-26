@@ -1,7 +1,7 @@
 /***********GLOBLA VARIABLES*******************/
 var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
-var the_operator;//holds the operator that is clicked
+var the_operator = "";//holds the operator that is clicked
 
 /*************************
  * NAME: input_digit
@@ -31,6 +31,12 @@ function operator(op) {
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
     array_calc();
+    if(operand_array[0] != "" && the_operator != ""){
+        input_number = operand_array[1];//retrieves value from display
+        operator_concat = operand_array[0] + the_operator + input_number;//concatenates the operator clicked to the current value of the display
+        $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
+        console.log("Re-Calc: ", operator_concat);
+    }
 }
 
 /*************************
@@ -98,7 +104,22 @@ function div(operand1, operand2) {//divides operand1 and operand 2
  */
 function array_calc(){//this runs the calculation if an operator is pushed
     if((operand_array[0] != "") && (operand_array[1] != "")){//checks if both array index [0] and [1] to be a value to be calculated
-        calculate();//runs the calculate function
+        var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
+        var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
+        switch (the_operator) {//switch statement to determine the operator to use
+            case '+'://if the_operator variable is holding a '+'
+                add(num1, num2);//runs the add() function
+                break;
+            case '-'://if the_operator variable is holding a '-'
+                sub(num1, num2);//runs the sub() function
+                break;
+            case '*'://if the_operator variable is holding a '*'
+                mult(num1, num2);//runs the mult() function
+                break;
+            case '/'://if the_operator variable is holding a '/'
+                div(num1, num2);//runs the div() function
+                break;
+        }
         var array_result = $('#result_field').val();//stores the result of the calculation in a variable
         var array_op = array_result + the_operator;//concatenates the selected operator to the result variable
         $('#input_field').val(array_op);//inserts the concatenated result and operator into the input field
@@ -131,6 +152,7 @@ function calculate() {//determines the operator to be used in and runs the funct
             div(num1, num2);//runs the div() function
             break;
     }
+    the_operator = "";
 }
 
 /*************************
@@ -192,10 +214,29 @@ function refresh_display() {
  * ADDITIONAL FUNCTIONS USED: none
  */
 function invert() {//inverts pos or neg sign to result
-    var number = operand_array[0];//stores value of operand_array[0] into variable
-    var inversion =  number * -1;//multiplies number variable by -1 and stores it on inversion variable
-    operand_array[0] = inversion;//inserts inversion variable into operand_array[0]
-    $('#input_field').val(inversion);//inserts inversion variable value into input field
+    if(index_pointer == 1 && the_operator != "") {//if index_pointer is equal to  1
+        var current = operand_array[0];//stores index 0 into current variable
+        var number = operand_array[index_pointer] * -1;//stores value of operand_array[index_pointer] times 1 into variable
+        operand_array[index_pointer] = number;//stores number variable in operand_array[index_pointer]
+        var update_current = current + the_operator + number;//stores current variable plus the_operator plus inversion into update_current variable
+        $('#input_field').val(update_current);//inserts update_current variable value into input field
+    } else {
+        current = operand_array[0] * -1;
+        operand_array[0] = current;
+        operand_array[1] = "";
+        the_operator = "";
+        var redo = current + the_operator + operand_array[1];
+        console.log("Redo: ");
+        $('#input_field').val(redo);
+    }
+    if(operand_array[0] == ""){//if index 0 is equal to an empty string
+         var neg = operand_array[0] = "-";//inserts negative sign into index 0 and stores it in a variable neg
+         $('#input_field').val(neg);//inserts neg variable into input_field
+     } else if(operand_array[1] == "" && the_operator != ""){//if index 1 is equal to empty string and the_operator does not equal empty string
+         var second_neg = operand_array[1] = "-";//inserts a negative into index 1 and stores it in second_neg variable
+         var get = operand_array[0] + the_operator + second_neg;//concatenates index 0, the_operator, second_neg into get variable
+         $('#input_field').val(get);//inserts get variable into input_field
+     }
 }
 
 $('#all_clear').click(function () {//click function to run all_clear()
@@ -206,6 +247,7 @@ $('#clear').click(function () {//click function to run clear() and refresh()
     clear();//clears the result field and resets operand_array[1]
     refresh_display();//inserts current operand_array values and operator into input field
 })
+
 
 
 
