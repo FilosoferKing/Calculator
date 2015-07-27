@@ -2,6 +2,7 @@
 var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
 var the_operator = "";//holds the operator that is clicked
+var input_array = [];
 
 /*************************
  * NAME: input_digit
@@ -30,7 +31,7 @@ function operator(op) {
     $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
-    array_calc();
+    //array_calc();
 }
 
 /*************************
@@ -168,6 +169,11 @@ function calculate() {//determines the operator to be used in and runs the funct
                 break;
         }
     }
+}
+
+function input(){
+
+    input_array = [];
 }
 
 /*************************
