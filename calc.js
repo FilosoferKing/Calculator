@@ -31,12 +31,6 @@ function operator(op) {
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
     array_calc();
-    if(operand_array[0] != "" && the_operator != ""){
-        input_number = operand_array[1];//retrieves value from display
-        operator_concat = operand_array[0] + the_operator + input_number;//concatenates the operator clicked to the current value of the display
-        $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
-        console.log("Re-Calc: ", operator_concat);
-    }
 }
 
 /*************************
