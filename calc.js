@@ -130,23 +130,44 @@ function array_calc(){//this runs the calculation if an operator is pushed
  * ADDITIONAL FUNCTIONS USED: add(), sub(), mult(), div()
  */
 function calculate() {//determines the operator to be used in and runs the function associated with that operator
-    var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
-    var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
-    switch (the_operator) {//switch statement to determine the operator to use
-        case '+'://if the_operator variable is holding a '+'
-            add(num1, num2);//runs the add() function
-            break;
-        case '-'://if the_operator variable is holding a '-'
-            sub(num1, num2);//runs the sub() function
-            break;
-        case '*'://if the_operator variable is holding a '*'
-            mult(num1, num2);//runs the mult() function
-            break;
-        case '/'://if the_operator variable is holding a '/'
-            div(num1, num2);//runs the div() function
-            break;
+    if (operand_array[0] !== "" && operand_array[1] != "") {
+        var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
+        var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
+        op_store = the_operator;
+        switch (the_operator) {//switch statement to determine the operator to use
+            case '+'://if the_operator variable is holding a '+'
+                add(num1, num2);//runs the add() function
+                break;
+            case '-'://if the_operator variable is holding a '-'
+                sub(num1, num2);//runs the sub() function
+                break;
+            case '*'://if the_operator variable is holding a '*'
+                mult(num1, num2);//runs the mult() function
+                break;
+            case '/'://if the_operator variable is holding a '/'
+                div(num1, num2);//runs the div() function
+                break;
+        }
+        the_operator = "";
+    } else if (operand_array[0] !== "" && operand_array[1] == "") {
+        num1 = operand_array[0];
+        num2 = operand_array[0];
+        console.log("Repeat: ", operand_array[0], op_store);
+        switch (op_store) {//switch statement to determine the operator to use
+            case '+'://if the_operator variable is holding a '+'
+                add(num1, num2);//runs the add() function
+                break;
+            case '-'://if the_operator variable is holding a '-'
+                sub(num1, num2);//runs the sub() function
+                break;
+            case '*'://if the_operator variable is holding a '*'
+                mult(num1, num2);//runs the mult() function
+                break;
+            case '/'://if the_operator variable is holding a '/'
+                div(num1, num2);//runs the div() function
+                break;
+        }
     }
-    the_operator = "";
 }
 
 /*************************
