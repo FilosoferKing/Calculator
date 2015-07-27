@@ -14,6 +14,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -21,46 +22,98 @@
 <body>
 <div class="fluid-container">
     <div class="col-sm-4 col-offset-4 col-xs-12 calc_body">
-        <div class="col-xs-12 calc_display" id="result_container">
-            <input class="col-xs-12" type="text" id="input_field" name="result_field" placeholder="Input" readonly>
-            <input class="col-xs-12" type="text" id="result_field" name="result_field" placeholder="Result" readonly>
-        </div><!--End of result_container-->
         <div class="row_container">
-            <div class="col-xs-3" onclick="input_digit(1)" id="1">1</div>
-            <div class="col-xs-3" onclick="input_digit(2)" id="2">2</div>
-            <div class="col-xs-3" onclick="input_digit(3)" id="3">3</div>
-            <div class="col-xs-3" id="clear">C</div>
-        </div><!--End of row_container-->
+            <div class="col-xs-9 results">
+                <input class="col-xs-6" type="text" id="input_field" name="result_field" placeholder="Input" readonly>
+                <input class="col-xs-6" type="text" id="result_field" name="result_field" placeholder="Result" readonly>
+            </div>
+            <div class="col-xs-3" onclick="calculate()" id="equal">
+                <img class="buttons" id="equal_sign" src="img/buttonE.png" alt="Button">
+            </div>
+        </div>
         <div class="row_container">
-            <div class="col-xs-3" onclick="input_digit(4)" id="4">4</div>
-            <div class="col-xs-3" onclick="input_digit(5)" id="5">5</div>
-            <div class="col-xs-3" onclick="input_digit(6)" id="6">6</div>
-            <div class="col-xs-3" id="par">( )</div>
-        </div><!--End of row_container-->
+            <div class="col-xs-3 number" onclick="input_digit(1)" id="1">
+                <img class="buttons" src="img/button1.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(2)" id="2">
+                <img class="buttons" src="img/button2.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(3)" id="3">
+                <img class="buttons" src="img/button3.png" alt="Button">
+            </div>
+            <div class="col-xs-3" id="clear">
+                <img class="buttons" src="img/buttonC.png" alt="Button">
+            </div>
+        </div>
+        <!--End of row_container-->
         <div class="row_container">
-            <div class="col-xs-3" onclick="input_digit(7)" id="7">7</div>
-            <div class="col-xs-3" onclick="input_digit(8)" id="8">8</div>
-            <div class="col-xs-3" onclick="input_digit(9)" id="9">9</div>
-            <div class="col-xs-3" onclick="operator('+')" id="plus">+</div>
-        </div><!--End of row_container-->
+            <div class="col-xs-3 number" onclick="input_digit(4)" id="4">
+                <img class="buttons" src="img/button4.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(5)" id="5">
+                <img class="buttons" src="img/button5.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(6)" id="6">
+                <img class="buttons" src="img/button6.png" alt="Button">
+            </div>
+            <div class="col-xs-3" id="par">
+                <img class="buttons" src="img/buttonP.png" alt="Button">
+            </div>
+        </div>
+        <!--End of row_container-->
         <div class="row_container">
-            <div class="col-xs-3" onclick="input_digit('.')" id="dot">.</div>
-            <div class="col-xs-3" onclick="input_digit(0)" id="0">0</div>
-            <div class="col-xs-3" onclick="operator('*')" id="times">X</div>
-            <div class="col-xs-3" onclick="operator('-')" id="minus">-</div>
-        </div><!--End of row_container-->
+            <div class="col-xs-3 number" onclick="input_digit(7)" id="7">
+                <img class="buttons" src="img/button7.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(8)" id="8">
+                <img class="buttons" src="img/button8.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(9)" id="9">
+                <img class="buttons" src="img/button9.png" alt="Button">
+            </div>
+            <div class="col-xs-3" onclick="operator('+')" id="plus">
+                <img class="buttons" src="img/buttonA.png" alt="Button">
+            </div>
+        </div>
+        <!--End of row_container-->
         <div class="row_container">
-            <div class="col-xs-3">x^</div>
-            <div class="col-xs-3" onclick="invert()" id="neg">+/-</div>
-            <div class="col-xs-3" onclick="operator('/')" id="divide">/</div>
-            <div class="col-xs-3" id="all_clear">AC</div>
-        </div><!--End of row_container-->
+            <div class="col-xs-3" onclick="input_digit('.')" id="dot">
+                <img class="buttons" src="img/buttonDot.png" alt="Button">
+            </div>
+            <div class="col-xs-3 number" onclick="input_digit(0)" id="0">
+                <img class="buttons" src="img/button0.png" alt="Button">
+            </div>
+            <div class="col-xs-3" onclick="operator('*')" id="times">
+                <img class="buttons" src="img/buttonM.png" alt="Button">
+            </div>
+            <div class="col-xs-3" onclick="operator('-')" id="minus">
+                <img class="buttons" src="img/buttonS.png" alt="Button">
+            </div>
+        </div>
+        <!--End of row_container-->
         <div class="row_container">
-            <div class="col-xs-6" onclick="calculate()" id="equal">=</div>
-            <div class="col-xs-6" id="back">BackSpace</div>
-        </div><!--End of row_container-->
-    </div><!--End of calc_body-->
-</div><!--End of fluid_container-->
+            <div class="col-xs-3">
+                <img class="buttons" src="img/buttonExp.png" alt="Button">
+            </div>
+            <div class="col-xs-3" onclick="invert()" id="neg">
+                <img class="buttons" src="img/buttonN.png" alt="Button">
+            </div>
+            <div class="col-xs-3" onclick="operator('/')" id="divide">
+                <img class="buttons" src="img/buttonD.png" alt="Button">
+            </div>
+            <div class="col-xs-3" id="all_clear">
+                <img class="buttons" src="img/buttonAC.png" alt="Button">
+            </div>
+        </div>
+        <!--End of row_container-->
+        <div class="row_container">
+
+        </div>
+        <!--End of row_container-->
+    </div>
+    <!--End of calc_body-->
+</div>
+<!--End of fluid_container-->
 
 <script src="calc.js"></script>
 </body>

@@ -4,22 +4,35 @@ Calculator
 .calc_body {
     position: relative;
     margin: 0 auto;
-    border: 1px solid;
-    height: 100vh;
     font-size: 2em;
+    font-family: 'Frijole', cursive;
+    font-size: 2.5em;
 }
 
 .calc_display {
-    height: 20%;
-    border:1px solid;
+    height: 16.5%;
 }
 
 .row_container {
-    height: 13.33%;
+    height: 16.5%;
     width: 100%;
 }
 
 .row_container div {
     height: 100%;
-    border:1px solid;
+}
+
+.buttons {
+    width: 100%;
+    height: auto;
+}
+
+.results {
+    margin-top: 5%;
+    #border:
+}
+
+#input_field, #result_field {
+
+   border: none;
 }
