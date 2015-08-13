@@ -16,6 +16,7 @@ function input_digit(operand) {
     var input_concat = input_digit + operand;//concat the value in the display with the next number clicked
     $('#input_field').val(input_concat);//inserts concatenated value into the display field
     operand_array[index_pointer] += operand;//store the number clicked into the operand_array[0] if variable index_pointer = 0
+
 }
 
 /*************************
@@ -31,7 +32,7 @@ function operator(op) {
     $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
-    //array_calc();
+    array_calc();
 }
 
 /*************************
@@ -114,7 +115,25 @@ function array_calc(){//this runs the calculation if an operator is pushed
             case '/'://if the_operator variable is holding a '/'
                 div(num1, num2);//runs the div() function
                 break;
+        }} else if (operand_array[0] !== "" && operand_array[1] == "") {
+        num1 = operand_array[0];
+        num2 = operand_array[0];
+        console.log("Repeat: ", operand_array[0], op_store);
+        switch (op_store) {//switch statement to determine the operator to use
+            case '+'://if the_operator variable is holding a '+'
+                add(num1, num2);//runs the add() function
+                break;
+            case '-'://if the_operator variable is holding a '-'
+                sub(num1, num2);//runs the sub() function
+                break;
+            case '*'://if the_operator variable is holding a '*'
+                mult(num1, num2);//runs the mult() function
+                break;
+            case '/'://if the_operator variable is holding a '/'
+                div(num1, num2);//runs the div() function
+                break;
         }
+
         var array_result = $('#result_field').val();//stores the result of the calculation in a variable
         var array_op = array_result + the_operator;//concatenates the selected operator to the result variable
         $('#input_field').val(array_op);//inserts the concatenated result and operator into the input field
@@ -150,24 +169,24 @@ function calculate() {//determines the operator to be used in and runs the funct
                 break;
         }
         the_operator = "";
-    } else if (operand_array[0] !== "" && operand_array[1] == "") {
-        num1 = operand_array[0];
-        num2 = operand_array[0];
-        console.log("Repeat: ", operand_array[0], op_store);
-        switch (op_store) {//switch statement to determine the operator to use
-            case '+'://if the_operator variable is holding a '+'
-                add(num1, num2);//runs the add() function
-                break;
-            case '-'://if the_operator variable is holding a '-'
-                sub(num1, num2);//runs the sub() function
-                break;
-            case '*'://if the_operator variable is holding a '*'
-                mult(num1, num2);//runs the mult() function
-                break;
-            case '/'://if the_operator variable is holding a '/'
-                div(num1, num2);//runs the div() function
-                break;
-        }
+    //} else if (operand_array[0] !== "" && operand_array[1] == "") {
+    //    num1 = operand_array[0];
+    //    num2 = operand_array[0];
+    //    console.log("Repeat: ", operand_array[0], op_store);
+    //    switch (op_store) {//switch statement to determine the operator to use
+    //        case '+'://if the_operator variable is holding a '+'
+    //            add(num1, num2);//runs the add() function
+    //            break;
+    //        case '-'://if the_operator variable is holding a '-'
+    //            sub(num1, num2);//runs the sub() function
+    //            break;
+    //        case '*'://if the_operator variable is holding a '*'
+    //            mult(num1, num2);//runs the mult() function
+    //            break;
+    //        case '/'://if the_operator variable is holding a '/'
+    //            div(num1, num2);//runs the div() function
+    //            break;
+    //    }
     }
 }
 
@@ -268,3 +287,5 @@ $('#clear').click(function () {//click function to run clear() and refresh()
     clear();//clears the result field and resets operand_array[1]
     refresh_display();//inserts current operand_array values and operator into input field
 })
+
+
