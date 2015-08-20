@@ -23,12 +23,9 @@
 <div class="fluid-container">
     <div class="col-sm-4 col-sm-push-4 col-xs-12 calc_body">
         <div class="row">
-            <div class="col-xs-9 results">
+            <div class="col-xs-12 results">
                 <input class="col-xs-6" type="text" id="input_field" name="result_field" readonly>
                 <input class="col-xs-6" type="text" id="result_field" name="result_field" readonly>
-            </div>
-            <div class="col-xs-3" onclick="calculate()" id="equal">
-                <img class="buttons" id="equal_sign" src="img/buttonE.png" alt="Button">
             </div>
         </div>
         <div class="row">
@@ -56,8 +53,8 @@
             <div class="col-xs-3 number" onclick="input_digit(6)" id="6">
                 <img class="buttons" src="img/button6.png" alt="Button">
             </div>
-            <div class="col-xs-3" id="par">
-                <img class="buttons" src="img/buttonP.png" alt="Button">
+            <div class="col-xs-3" onclick="invert()" id="neg">
+                <img class="buttons" src="img/buttonN.png" alt="Button">
             </div>
         </div>
         <!--End of row_container-->
@@ -92,16 +89,14 @@
         </div>
         <!--End of row_container-->
         <div class="row">
-            <div class="col-xs-3">
-                <img class="buttons" src="img/buttonExp.png" alt="Button">
+            <div class="col-xs-3" onclick="calculate()" id="equal">
+                <img class="buttons" id="equal_sign" src="img/buttonE.png" alt="Button">
             </div>
-            <div class="col-xs-3" onclick="invert()" id="neg">
-                <img class="buttons" src="img/buttonN.png" alt="Button">
-            </div>
-            <div class="col-xs-3" onclick="operator('/')" id="divide">
+
+            <div class="col-xs-3 col-xs-push-3" onclick="operator('/')" id="divide">
                 <img class="buttons" src="img/buttonD.png" alt="Button">
             </div>
-            <div class="col-xs-3" id="all_clear">
+            <div class="col-xs-3 col-xs-push-3" id="all_clear">
                 <img class="buttons" src="img/buttonAC.png" alt="Button">
             </div>
         </div>
