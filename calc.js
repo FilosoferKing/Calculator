@@ -3,6 +3,7 @@ var operand_array = ["", ""];//array for my operand1 and operand2 input
 var index_pointer = 0;//determines which index position to push to
 var the_operator = "";//holds the operator that is clicked
 var input_array = [];
+var equal_clicked = false;
 
 /*************************
  * NAME: input_digit
@@ -32,7 +33,15 @@ function operator(op) {
     $('#input_field').val(operator_concat);//inserts concatenated value and operator back into display
     index_pointer = 1;//changes index_pointer = 1, the next number clicked will be inserted into operand_array[1]
     the_operator = op;//stores the operator clicked to be used in calculation comparison
-    array_calc();
+    if(equal_clicked == false) {
+        array_calc();
+    };
+
+    //if(operand_array[0] != "" && operand_array[1] == "" && the_operator.length > 0){
+    //    operator();
+    //} else {
+    //    array_calc();
+    //}
 }
 
 /*************************
@@ -100,6 +109,7 @@ function div(operand1, operand2) {//divides operand1 and operand 2
  */
 function array_calc(){//this runs the calculation if an operator is pushed
     if((operand_array[0] != "") && (operand_array[1] != "")){//checks if both array index [0] and [1] to be a value to be calculated
+
         var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
         var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
         switch (the_operator) {//switch statement to determine the operator to use
@@ -115,10 +125,10 @@ function array_calc(){//this runs the calculation if an operator is pushed
             case '/'://if the_operator variable is holding a '/'
                 div(num1, num2);//runs the div() function
                 break;
-        }} else if (operand_array[0] !== "" && operand_array[1] == "") {
+        }} else if (operand_array[0] != "" && operand_array[1] == ""){
         num1 = operand_array[0];
         num2 = operand_array[0];
-        console.log("Repeat: ", operand_array[0], op_store);
+        console.log("Repeat: ", operand_array[0]);
         switch (op_store) {//switch statement to determine the operator to use
             case '+'://if the_operator variable is holding a '+'
                 add(num1, num2);//runs the add() function
@@ -132,6 +142,7 @@ function array_calc(){//this runs the calculation if an operator is pushed
             case '/'://if the_operator variable is holding a '/'
                 div(num1, num2);//runs the div() function
                 break;
+                equal_clicked = false;
         }
 
         var array_result = $('#result_field').val();//stores the result of the calculation in a variable
@@ -150,6 +161,7 @@ function array_calc(){//this runs the calculation if an operator is pushed
  * ADDITIONAL FUNCTIONS USED: add(), sub(), mult(), div()
  */
 function calculate() {//determines the operator to be used in and runs the function associated with that operator
+    equal_clicked = true;
     if (operand_array[0] != "" && operand_array[1] != "") {
         var num1 = operand_array[0];//stores the [0] position from the operand array into the num1 variable
         var num2 = operand_array[1];//stores the [1] position from the operand array into the num2 variable
