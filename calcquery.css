@@ -1,0 +1,5 @@
+@media screen and (max-width: 768px){
+    .calc_body {
+        font-size: 10vw;
+    }
+}
