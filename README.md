@@ -2,14 +2,13 @@
 
 ![Calulator](/img/calculator.png)
 
-**Description**: This is a classic Tic Tac Toe game. 
+**Description**: This is a simple calculator. 
 
 ##Features
-* Win/lose/"cat's game" notification.
-* Player turn notifcation.
-* Standard 3x3 gameboard.
+* Add/Subtract/Multiply/Divide
 
 ##Project Notes
-  * This project has a set array of win conditions to check for against an array
-    of clicked boxes during game play. 
-  * The boxes are dynamically loaded.
+  * The calculaotr was one of the more difficult projects I did. There are many aspects to 
+    account for regarding the different ways in which tasks like adding should work, i.e. pushing 
+    the plus button continuosly after each number and calculate the total, as well as have the equal button
+    do it as well.
